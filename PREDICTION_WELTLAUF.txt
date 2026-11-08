@@ -1,0 +1,25 @@
+VORHERSAGE WELTLAUF AUF CLOUDFLARE, festgelegt am 09.11.2026 vor dem Start
+
+Aufbau: 36 Knoten, jeder Knoten ein eigener Server (Cloudflare Durable Object, Ortshinweis wechselnd ueber 9 Weltregionen), jeder Knoten rechnet nur mit seinen zwei Nachbarn, kein Master, keine gemeinsame Uhr.
+Servercode (SHA-256): weltlauf/worker.js = 57bbf5657138fec803f1eb7e5f17241fa8a6c7e5d2b76fafebfd3df8fd175131
+Sechs Laeufe (Parameter in weltlauf/steps.json, Vorhersagen in weltlauf/seal.json, berechnet mit weltlauf/gen.mjs):
+ 1 phase: Phasenlauf mit Sinus, K=4, Windung 1, 400 Schritte
+ 2 k2:    Phasenlauf, K=2, Windung 1, 40 Schritte
+ 3 k8:    Phasenlauf, K=8, Windung 1, 40 Schritte
+ 4 q3:    Phasenlauf, K=4, Windung 3, 40 Schritte
+ 5 eps:   Ring mit eps=0,496, 40 Schritte
+ 6 fault: Ring mit eps=0,25, 40 Schritte, Knoten 17 wird bei Schritt 20 geloescht und stellt sich aus beiden Nachbarn wieder her
+
+Vorhersagen fuer die Phasenlaeufe (1 bis 4):
+ - Windung gleich dem eingespritzten q zu allen Zeitpunkten, Abweichung < 1e-9.
+ - Jeder Knoten im letzten Schritt innerhalb 1e-11 zum Referenz-Endzustand (in seal.json, Feld ref_final) und zum freien Nachlauf im Browser.
+ - Nachbardifferenzen im letzten Schritt im Band aus seal.json (Lauf 1: 0,13 bis 0,21, Feld band).
+ - Mittelwert aller Phasen aendert sich um weniger als 1e-12. Jeder Schritt aus den Serverwerten nachgerechnet: Abweichung hoechstens 1e-11.
+ - Kein Knoten meldet einen Widerspruch zwischen zwei empfangenen Kopien eines Wertes.
+Vorhersagen fuer die Ringlaeufe (5 und 6):
+ - Jeder Schritt aus den Serverwerten Bit fuer Bit nachgerechnet (nur +, -, *), Summe erhalten (< 1e-12).
+ - SHA-256 aller Werte aller Knoten ueber alle Schritte und des Endzustands gleich den Werten in seal.json (Felder all, final).
+ - Lauf 5: Abfall der langsamsten Schwingung 0,984929290988, der schnellsten 0,984, Abweichung < 1e-9.
+ - Lauf 6: Knoten 17 holt Schritt 0 bis zum Ausfallschritt aus beiden Nachbarn, beide Kopien gleich, danach ist der Prueferwert aller Schritte gleich dem Lauf ohne Ausfall.
+Vorhersage fuer den Fingerabdruck der Rechenbibliothek: wird aufgezeichnet, keine Vorhersage.
+Aenderung der Vorhersage nach dem Start: ausgeschlossen.
