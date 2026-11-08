@@ -1,0 +1,18 @@
+VORHERSAGE FINALER RINGTEST, festgelegt am 08.11.2026 vor dem Start
+
+Aufbau: Ring, jeder Knoten rechnet nur mit seinen zwei Nachbarn. Jeder Rechner fuehrt die fuenf Pruefungen T1 bis T5 aus (Programm ring_test.py).
+Programme (SHA-256): ring_test.py = 54890b26bd47a47bae6d920e8aa45c269464e2964b8365ba95b5e899840e6d52
+                     make_report.py = e0a3975025e6a902c9fd0bd8f4b1d8e6f401521c85eb8ed7e5c8ca0c90bfd7a4
+                     referenz_phase.json = cb78c4bcc590100bea062d05e90fefb9d5bf2b5a9d35ad1bdfeb459cc834be30
+                     .github/workflows/ringtest.yml = 65846b15cda2a65e22307f7a269cdf73e66f77181a4f47987b7bf8914ddcac0f
+
+T1 Ring N=36, eps=0,25, 400 Schritte, Start x_i = ((7 i mod 13)/13). Pruefwert (SHA-256 der float64-Werte, little-endian):
+   alle Schritte  = 69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7
+   Endzustand     = c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b
+   Summe aller Werte aendert sich um weniger als 1e-12. Abfall je Schritt der langsamsten Schwingung = 1 - eps*(2-2cos(2pi/36)) = 0,992403877, Abweichung < 1e-9.
+T2 Phasenlauf N=36, K=4, dt=0,05, 400 Schritte (Vorhersage vom 08.11.2026, Datei vorhersage_K.txt): Windung 1 zu allen 401 Zeitpunkten (<1e-9), jeder Knoten innerhalb 1e-11 der Referenz, Nachbardifferenzen in [0,13; 0,21], Mittelwert-Drift < 1e-12. Referenz-Endzustand SHA-256 = 8af60c475cbc84e82ac900a80653e96e4a3dd98bf8f75eb44e7e9dc4808bd276
+T3 Ring N=36, eps=0,496, 200 Schritte: Abfall der langsamsten Schwingung 0,984929, der schnellsten (Wechselvorzeichen) 0,984, Abweichung < 1e-9.
+T4 Ringe N=30 und N=70, eps=0,25, 200 Schritte: Summe der Eigenwerte = 2N, Produkt der von null verschiedenen = N^2, Summe der Kehrwerte = (N^2-1)/12, Abfall der langsamsten Schwingung = 1 - eps*(2-2cos(2pi/N)); Abweichung < 1e-9.
+T5 Rechenbibliothek-Fingerabdruck: wird aufgezeichnet, keine Vorhersage (zeigt, welche Rechner dieselbe Bibliothek benutzen).
+Vorhersage: alle Rechner bestehen T1 bis T4. In T1 ist der Pruefwert auf allen Chips gleich, weil nur Addition, Subtraktion und Multiplikation vorkommen.
+Aenderung der Vorhersage nach dem Start: ausgeschlossen.
