@@ -1,0 +1,2112 @@
+{
+ "laeufe": 27,
+ "bestanden": 27,
+ "cpu_modelle": {
+  "Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz": 3,
+  "Apple M1 (Virtual)": 3,
+  "ARM 0x41 / 0xd49": 3,
+  "AMD EPYC 7763 64-Core Processor": 4,
+  "AMD EPYC 9V45 96-Core Processor": 5,
+  "Neoverse-N2": 3,
+  "AMD EPYC 9V74 80-Core Processor": 2,
+  "Cobalt 100": 3,
+  "INTEL(R) XEON(R) PLATINUM 8573C": 1
+ },
+ "fingerabdruecke": {
+  "f28fbc6136daa6bcb830a44be5c28af1aafd133c3be029ddc9758f18c8704c2c": 3,
+  "764143bc5768ba45dd60da2626a778e22e0a9770b8364276ec53da907fd2ea15": 3,
+  "7bc55133f6cbda49caaba5189f499dcf2abe5af0c2c9d3c522ec1d5acc8be236": 12,
+  "ad929d15482aa1fb5e5feeb55c5d91bdd264f7570feb31f4a5e86457767b86ae": 3,
+  "f686e9e34648a97a250b45dee9a175ba2899fc4ab555e4765f66f8f8b525d164": 3,
+  "bd666372a18b4f94dc2160f66390fa2508350d3095b8d450ab1b6007613d0411": 3
+ },
+ "t1_hashes": {
+  "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7": 27
+ },
+ "t2_hashes": {
+  "397e95fd3638f30b2ccadc38a70ba143a11e13980d99948caf47572d1a94f06b": 6,
+  "8af60c475cbc84e82ac900a80653e96e4a3dd98bf8f75eb44e7e9dc4808bd276": 12,
+  "7a46ef3e80773968a6db22c4b3d08e266f78b5b1763d8f969ee56f39279e6ebc": 9
+ },
+ "laeufe_liste": [
+  {
+   "label": "macos-15-intel_1",
+   "os": "Darwin",
+   "os_version": "macOS-15.7.9-x86_64-i386-64bit",
+   "architektur": "x86_64",
+   "cpu_modell": "Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz",
+   "cpu_details": "hw.model: Macmini6,2\nhw.ncpu: 4",
+   "python": "3.12.10",
+   "rechenzeit_s": 0.15,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 1.3877787807814457e-17,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "397e95fd3638f30b2ccadc38a70ba143a11e13980d99948caf47572d1a94f06b"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "f28fbc6136daa6bcb830a44be5c28af1aafd133c3be029ddc9758f18c8704c2c",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000008",
+   "runner_os": "macOS",
+   "runner_arch": "X64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "macos-15-intel_2",
+   "os": "Darwin",
+   "os_version": "macOS-15.7.9-x86_64-i386-64bit",
+   "architektur": "x86_64",
+   "cpu_modell": "Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz",
+   "cpu_details": "hw.model: Macmini6,2\nhw.ncpu: 4",
+   "python": "3.12.10",
+   "rechenzeit_s": 0.14,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 1.3877787807814457e-17,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "397e95fd3638f30b2ccadc38a70ba143a11e13980d99948caf47572d1a94f06b"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "f28fbc6136daa6bcb830a44be5c28af1aafd133c3be029ddc9758f18c8704c2c",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000009",
+   "runner_os": "macOS",
+   "runner_arch": "X64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "macos-15-intel_3",
+   "os": "Darwin",
+   "os_version": "macOS-15.7.9-x86_64-i386-64bit",
+   "architektur": "x86_64",
+   "cpu_modell": "Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz",
+   "cpu_details": "hw.model: Macmini6,2\nhw.ncpu: 4",
+   "python": "3.12.10",
+   "rechenzeit_s": 0.17,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 1.3877787807814457e-17,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "397e95fd3638f30b2ccadc38a70ba143a11e13980d99948caf47572d1a94f06b"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "f28fbc6136daa6bcb830a44be5c28af1aafd133c3be029ddc9758f18c8704c2c",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000015",
+   "runner_os": "macOS",
+   "runner_arch": "X64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "macos-15_1",
+   "os": "Darwin",
+   "os_version": "macOS-15.8.2-arm64-arm-64bit",
+   "architektur": "arm64",
+   "cpu_modell": "Apple M1 (Virtual)",
+   "cpu_details": "hw.model: VirtualMac2,1\nhw.ncpu: 3\nhw.optional.arm64: 1",
+   "python": "3.12.10",
+   "rechenzeit_s": 0.05,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 1.3877787807814457e-17,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "397e95fd3638f30b2ccadc38a70ba143a11e13980d99948caf47572d1a94f06b"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999977,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 2.5263741715914674e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "764143bc5768ba45dd60da2626a778e22e0a9770b8364276ec53da907fd2ea15",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000016",
+   "runner_os": "macOS",
+   "runner_arch": "ARM64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "macos-15_2",
+   "os": "Darwin",
+   "os_version": "macOS-15.8.2-arm64-arm-64bit",
+   "architektur": "arm64",
+   "cpu_modell": "Apple M1 (Virtual)",
+   "cpu_details": "hw.model: VirtualMac2,1\nhw.ncpu: 3\nhw.optional.arm64: 1",
+   "python": "3.12.10",
+   "rechenzeit_s": 0.06,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 1.3877787807814457e-17,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "397e95fd3638f30b2ccadc38a70ba143a11e13980d99948caf47572d1a94f06b"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999977,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 2.5263741715914674e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "764143bc5768ba45dd60da2626a778e22e0a9770b8364276ec53da907fd2ea15",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000017",
+   "runner_os": "macOS",
+   "runner_arch": "ARM64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "macos-15_3",
+   "os": "Darwin",
+   "os_version": "macOS-15.8.2-arm64-arm-64bit",
+   "architektur": "arm64",
+   "cpu_modell": "Apple M1 (Virtual)",
+   "cpu_details": "hw.model: VirtualMac2,1\nhw.ncpu: 3\nhw.optional.arm64: 1",
+   "python": "3.12.10",
+   "rechenzeit_s": 0.04,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 1.3877787807814457e-17,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "397e95fd3638f30b2ccadc38a70ba143a11e13980d99948caf47572d1a94f06b"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999977,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 2.5263741715914674e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "764143bc5768ba45dd60da2626a778e22e0a9770b8364276ec53da907fd2ea15",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000019",
+   "runner_os": "macOS",
+   "runner_arch": "ARM64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "ubuntu-22.04-arm_1",
+   "os": "Linux",
+   "os_version": "Linux-6.8.0-1070-azure-aarch64-with-glibc2.35",
+   "architektur": "aarch64",
+   "cpu_modell": "ARM 0x41 / 0xd49",
+   "cpu_details": "Architecture:                            aarch64\nCPU op-mode(s):                          32-bit, 64-bit\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               ARM\nModel:                                   0\nThread(s) per core:                      1\nCore(s) per socket:                      4\nSocket(s):                               1\nStepping:                                r0p0\nBogoMIPS:                                2000.00\nFlags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm uscat ilrcpc flagm ssbs sb paca pacg dcpodp sve2 sveaes svebitperm svesha3 svesm4 flagm2 frint svei8mm svebf16 i8mm bf16\nL1d cache:                               256 KiB (4 instances)\nL1i cache:                               256 KiB (4 instances)\nL2 cache:                                4 MiB (4 instances)\nL3 cache:                                128 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; CSV2, BHB\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+   "python": "3.12.16",
+   "rechenzeit_s": 0.01,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 0.0,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "8af60c475cbc84e82ac900a80653e96e4a3dd98bf8f75eb44e7e9dc4808bd276"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "7bc55133f6cbda49caaba5189f499dcf2abe5af0c2c9d3c522ec1d5acc8be236",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000012",
+   "runner_os": "Linux",
+   "runner_arch": "ARM64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "ubuntu-22.04-arm_2",
+   "os": "Linux",
+   "os_version": "Linux-6.8.0-1070-azure-aarch64-with-glibc2.35",
+   "architektur": "aarch64",
+   "cpu_modell": "ARM 0x41 / 0xd49",
+   "cpu_details": "Architecture:                            aarch64\nCPU op-mode(s):                          32-bit, 64-bit\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               ARM\nModel:                                   0\nThread(s) per core:                      1\nCore(s) per socket:                      4\nSocket(s):                               1\nStepping:                                r0p0\nBogoMIPS:                                2000.00\nFlags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm uscat ilrcpc flagm ssbs sb paca pacg dcpodp sve2 sveaes svebitperm svesha3 svesm4 flagm2 frint svei8mm svebf16 i8mm bf16\nL1d cache:                               256 KiB (4 instances)\nL1i cache:                               256 KiB (4 instances)\nL2 cache:                                4 MiB (4 instances)\nL3 cache:                                128 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; CSV2, BHB\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+   "python": "3.12.16",
+   "rechenzeit_s": 0.01,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 0.0,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "8af60c475cbc84e82ac900a80653e96e4a3dd98bf8f75eb44e7e9dc4808bd276"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "7bc55133f6cbda49caaba5189f499dcf2abe5af0c2c9d3c522ec1d5acc8be236",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000006",
+   "runner_os": "Linux",
+   "runner_arch": "ARM64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "ubuntu-22.04-arm_3",
+   "os": "Linux",
+   "os_version": "Linux-6.8.0-1070-azure-aarch64-with-glibc2.35",
+   "architektur": "aarch64",
+   "cpu_modell": "ARM 0x41 / 0xd49",
+   "cpu_details": "Architecture:                            aarch64\nCPU op-mode(s):                          32-bit, 64-bit\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               ARM\nModel:                                   0\nThread(s) per core:                      1\nCore(s) per socket:                      4\nSocket(s):                               1\nStepping:                                r0p0\nBogoMIPS:                                2000.00\nFlags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm uscat ilrcpc flagm ssbs sb paca pacg dcpodp sve2 sveaes svebitperm svesha3 svesm4 flagm2 frint svei8mm svebf16 i8mm bf16\nL1d cache:                               256 KiB (4 instances)\nL1i cache:                               256 KiB (4 instances)\nL2 cache:                                4 MiB (4 instances)\nL3 cache:                                128 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; CSV2, BHB\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+   "python": "3.12.16",
+   "rechenzeit_s": 0.01,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 0.0,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "8af60c475cbc84e82ac900a80653e96e4a3dd98bf8f75eb44e7e9dc4808bd276"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "7bc55133f6cbda49caaba5189f499dcf2abe5af0c2c9d3c522ec1d5acc8be236",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000023",
+   "runner_os": "Linux",
+   "runner_arch": "ARM64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "ubuntu-22.04_1",
+   "os": "Linux",
+   "os_version": "Linux-6.8.0-1070-azure-x86_64-with-glibc2.35",
+   "architektur": "x86_64",
+   "cpu_modell": "AMD EPYC 7763 64-Core Processor",
+   "cpu_details": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           48 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               AuthenticAMD\nModel name:                              AMD EPYC 7763 64-Core Processor\nCPU family:                              25\nModel:                                   1\nThread(s) per core:                      2\nCore(s) per socket:                      2\nSocket(s):                               1\nStepping:                                1\nBogoMIPS:                                4890.86\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves user_shstk clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm\nVirtualization:                          AMD-V\nHypervisor vendor:                       Microsoft\nVirtualization type:                     full\nL1d cache:                               64 KiB (2 instances)\nL1i cache:                               64 KiB (2 instances)\nL2 cache:                                1 MiB (2 instances)\nL3 cache:                                32 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Vulnerable: Safe RET, no microcode\nVulnerability Spec store bypass:         Vulnerable\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Vulnerable: Clear CPU buffers attempted, no microcode\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+   "python": "3.12.16",
+   "rechenzeit_s": 0.02,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 0.0,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "8af60c475cbc84e82ac900a80653e96e4a3dd98bf8f75eb44e7e9dc4808bd276"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "7bc55133f6cbda49caaba5189f499dcf2abe5af0c2c9d3c522ec1d5acc8be236",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000013",
+   "runner_os": "Linux",
+   "runner_arch": "X64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "ubuntu-22.04_2",
+   "os": "Linux",
+   "os_version": "Linux-6.8.0-1070-azure-x86_64-with-glibc2.35",
+   "architektur": "x86_64",
+   "cpu_modell": "AMD EPYC 7763 64-Core Processor",
+   "cpu_details": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           48 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               AuthenticAMD\nModel name:                              AMD EPYC 7763 64-Core Processor\nCPU family:                              25\nModel:                                   1\nThread(s) per core:                      2\nCore(s) per socket:                      2\nSocket(s):                               1\nStepping:                                1\nBogoMIPS:                                4890.85\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves user_shstk clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm\nVirtualization:                          AMD-V\nHypervisor vendor:                       Microsoft\nVirtualization type:                     full\nL1d cache:                               64 KiB (2 instances)\nL1i cache:                               64 KiB (2 instances)\nL2 cache:                                1 MiB (2 instances)\nL3 cache:                                32 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Vulnerable: Safe RET, no microcode\nVulnerability Spec store bypass:         Vulnerable\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Vulnerable: Clear CPU buffers attempted, no microcode\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+   "python": "3.12.16",
+   "rechenzeit_s": 0.02,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 0.0,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "8af60c475cbc84e82ac900a80653e96e4a3dd98bf8f75eb44e7e9dc4808bd276"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "7bc55133f6cbda49caaba5189f499dcf2abe5af0c2c9d3c522ec1d5acc8be236",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000018",
+   "runner_os": "Linux",
+   "runner_arch": "X64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "ubuntu-22.04_3",
+   "os": "Linux",
+   "os_version": "Linux-6.8.0-1070-azure-x86_64-with-glibc2.35",
+   "architektur": "x86_64",
+   "cpu_modell": "AMD EPYC 9V45 96-Core Processor",
+   "cpu_details": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           48 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               AuthenticAMD\nModel name:                              AMD EPYC 9V45 96-Core Processor\nCPU family:                              26\nModel:                                   2\nThread(s) per core:                      2\nCore(s) per socket:                      2\nSocket(s):                               1\nStepping:                                1\nBogoMIPS:                                5192.24\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves user_shstk avx_vnni avx512_bf16 clzero xsaveerptr rdpru amd_ibpb_ret arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm avx512_vp2intersect\nVirtualization:                          AMD-V\nHypervisor vendor:                       Microsoft\nVirtualization type:                     full\nL1d cache:                               96 KiB (2 instances)\nL1i cache:                               64 KiB (2 instances)\nL2 cache:                                2 MiB (2 instances)\nL3 cache:                                32 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Vulnerable\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+   "python": "3.12.16",
+   "rechenzeit_s": 0.01,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 0.0,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "8af60c475cbc84e82ac900a80653e96e4a3dd98bf8f75eb44e7e9dc4808bd276"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "7bc55133f6cbda49caaba5189f499dcf2abe5af0c2c9d3c522ec1d5acc8be236",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000027",
+   "runner_os": "Linux",
+   "runner_arch": "X64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "ubuntu-24.04-arm_1",
+   "os": "Linux",
+   "os_version": "Linux-7.0.0-1017-azure-aarch64-with-glibc2.39",
+   "architektur": "aarch64",
+   "cpu_modell": "Neoverse-N2",
+   "cpu_details": "Architecture:                            aarch64\nCPU op-mode(s):                          32-bit, 64-bit\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               ARM\nModel name:                              Neoverse-N2\nModel:                                   0\nThread(s) per core:                      1\nCore(s) per socket:                      4\nSocket(s):                               1\nStepping:                                r0p0\nBogoMIPS:                                2000.00\nFlags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm uscat ilrcpc flagm sb paca pacg dcpodp sve2 sveaes svebitperm svesha3 svesm4 flagm2 frint svei8mm svebf16 i8mm bf16\nL1d cache:                               256 KiB (4 instances)\nL1i cache:                               256 KiB (4 instances)\nL2 cache:                                4 MiB (4 instances)\nL3 cache:                                128 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; CSV2, BHB\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+   "python": "3.12.16",
+   "rechenzeit_s": 0.01,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 0.0,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "8af60c475cbc84e82ac900a80653e96e4a3dd98bf8f75eb44e7e9dc4808bd276"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "7bc55133f6cbda49caaba5189f499dcf2abe5af0c2c9d3c522ec1d5acc8be236",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000005",
+   "runner_os": "Linux",
+   "runner_arch": "ARM64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "ubuntu-24.04-arm_2",
+   "os": "Linux",
+   "os_version": "Linux-7.0.0-1017-azure-aarch64-with-glibc2.39",
+   "architektur": "aarch64",
+   "cpu_modell": "Neoverse-N2",
+   "cpu_details": "Architecture:                            aarch64\nCPU op-mode(s):                          32-bit, 64-bit\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               ARM\nModel name:                              Neoverse-N2\nModel:                                   0\nThread(s) per core:                      1\nCore(s) per socket:                      4\nSocket(s):                               1\nStepping:                                r0p0\nBogoMIPS:                                2000.00\nFlags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm uscat ilrcpc flagm sb paca pacg dcpodp sve2 sveaes svebitperm svesha3 svesm4 flagm2 frint svei8mm svebf16 i8mm bf16\nL1d cache:                               256 KiB (4 instances)\nL1i cache:                               256 KiB (4 instances)\nL2 cache:                                4 MiB (4 instances)\nL3 cache:                                128 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; CSV2, BHB\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+   "python": "3.12.16",
+   "rechenzeit_s": 0.01,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 0.0,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "8af60c475cbc84e82ac900a80653e96e4a3dd98bf8f75eb44e7e9dc4808bd276"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "7bc55133f6cbda49caaba5189f499dcf2abe5af0c2c9d3c522ec1d5acc8be236",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000002",
+   "runner_os": "Linux",
+   "runner_arch": "ARM64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "ubuntu-24.04-arm_3",
+   "os": "Linux",
+   "os_version": "Linux-7.0.0-1017-azure-aarch64-with-glibc2.39",
+   "architektur": "aarch64",
+   "cpu_modell": "Neoverse-N2",
+   "cpu_details": "Architecture:                            aarch64\nCPU op-mode(s):                          32-bit, 64-bit\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               ARM\nModel name:                              Neoverse-N2\nModel:                                   0\nThread(s) per core:                      1\nCore(s) per socket:                      4\nSocket(s):                               1\nStepping:                                r0p0\nBogoMIPS:                                2000.00\nFlags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm uscat ilrcpc flagm sb paca pacg dcpodp sve2 sveaes svebitperm svesha3 svesm4 flagm2 frint svei8mm svebf16 i8mm bf16\nL1d cache:                               256 KiB (4 instances)\nL1i cache:                               256 KiB (4 instances)\nL2 cache:                                4 MiB (4 instances)\nL3 cache:                                128 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; CSV2, BHB\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+   "python": "3.12.16",
+   "rechenzeit_s": 0.01,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 0.0,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "8af60c475cbc84e82ac900a80653e96e4a3dd98bf8f75eb44e7e9dc4808bd276"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "7bc55133f6cbda49caaba5189f499dcf2abe5af0c2c9d3c522ec1d5acc8be236",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000003",
+   "runner_os": "Linux",
+   "runner_arch": "ARM64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "ubuntu-24.04_1",
+   "os": "Linux",
+   "os_version": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+   "architektur": "x86_64",
+   "cpu_modell": "AMD EPYC 7763 64-Core Processor",
+   "cpu_details": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           48 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               AuthenticAMD\nModel name:                              AMD EPYC 7763 64-Core Processor\nCPU family:                              25\nModel:                                   1\nThread(s) per core:                      2\nCore(s) per socket:                      2\nSocket(s):                               1\nStepping:                                1\nBogoMIPS:                                4890.85\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves user_shstk clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm\nVirtualization:                          AMD-V\nHypervisor vendor:                       Microsoft\nVirtualization type:                     full\nL1d cache:                               64 KiB (2 instances)\nL1i cache:                               64 KiB (2 instances)\nL2 cache:                                1 MiB (2 instances)\nL3 cache:                                32 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Vulnerable: Safe RET, no microcode\nVulnerability Spec store bypass:         Vulnerable\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Vulnerable: No microcode\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+   "python": "3.12.16",
+   "rechenzeit_s": 0.02,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 0.0,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "8af60c475cbc84e82ac900a80653e96e4a3dd98bf8f75eb44e7e9dc4808bd276"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "7bc55133f6cbda49caaba5189f499dcf2abe5af0c2c9d3c522ec1d5acc8be236",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000022",
+   "runner_os": "Linux",
+   "runner_arch": "X64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "ubuntu-24.04_2",
+   "os": "Linux",
+   "os_version": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+   "architektur": "x86_64",
+   "cpu_modell": "AMD EPYC 9V45 96-Core Processor",
+   "cpu_details": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           48 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               AuthenticAMD\nModel name:                              AMD EPYC 9V45 96-Core Processor\nCPU family:                              26\nModel:                                   2\nThread(s) per core:                      2\nCore(s) per socket:                      2\nSocket(s):                               1\nStepping:                                1\nBogoMIPS:                                5192.24\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves user_shstk avx_vnni avx512_bf16 clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm avx512_vp2intersect\nVirtualization:                          AMD-V\nHypervisor vendor:                       Microsoft\nVirtualization type:                     full\nL1d cache:                               96 KiB (2 instances)\nL1i cache:                               64 KiB (2 instances)\nL2 cache:                                2 MiB (2 instances)\nL3 cache:                                32 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Vulnerable: Safe RET, no microcode\nVulnerability Spec store bypass:         Vulnerable\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+   "python": "3.12.16",
+   "rechenzeit_s": 0.01,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 0.0,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "8af60c475cbc84e82ac900a80653e96e4a3dd98bf8f75eb44e7e9dc4808bd276"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "7bc55133f6cbda49caaba5189f499dcf2abe5af0c2c9d3c522ec1d5acc8be236",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000024",
+   "runner_os": "Linux",
+   "runner_arch": "X64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "ubuntu-24.04_3",
+   "os": "Linux",
+   "os_version": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+   "architektur": "x86_64",
+   "cpu_modell": "AMD EPYC 9V74 80-Core Processor",
+   "cpu_details": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           48 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               AuthenticAMD\nModel name:                              AMD EPYC 9V74 80-Core Processor\nCPU family:                              25\nModel:                                   17\nThread(s) per core:                      2\nCore(s) per socket:                      2\nSocket(s):                               1\nStepping:                                1\nBogoMIPS:                                5192.28\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves user_shstk clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm\nVirtualization:                          AMD-V\nHypervisor vendor:                       Microsoft\nVirtualization type:                     full\nL1d cache:                               64 KiB (2 instances)\nL1i cache:                               64 KiB (2 instances)\nL2 cache:                                2 MiB (2 instances)\nL3 cache:                                32 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Vulnerable: Safe RET, no microcode\nVulnerability Spec store bypass:         Vulnerable\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Vulnerable: No microcode\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+   "python": "3.12.16",
+   "rechenzeit_s": 0.02,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 0.0,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "8af60c475cbc84e82ac900a80653e96e4a3dd98bf8f75eb44e7e9dc4808bd276"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "7bc55133f6cbda49caaba5189f499dcf2abe5af0c2c9d3c522ec1d5acc8be236",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000004",
+   "runner_os": "Linux",
+   "runner_arch": "X64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "windows-11-arm_1",
+   "os": "Windows",
+   "os_version": "Windows-11-10.0.26200-SP0",
+   "architektur": "ARM64",
+   "cpu_modell": "Cobalt 100",
+   "cpu_details": "ARMv8 (64-bit) Family 8 Model D49 Revision   0, MICROSOFT CORPORATION",
+   "python": "3.12.10",
+   "rechenzeit_s": 0.05,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 1.3877787807814457e-17,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "7a46ef3e80773968a6db22c4b3d08e266f78b5b1763d8f969ee56f39279e6ebc"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "ad929d15482aa1fb5e5feeb55c5d91bdd264f7570feb31f4a5e86457767b86ae",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000001",
+   "runner_os": "Windows",
+   "runner_arch": "ARM64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "windows-11-arm_2",
+   "os": "Windows",
+   "os_version": "Windows-11-10.0.26200-SP0",
+   "architektur": "ARM64",
+   "cpu_modell": "Cobalt 100",
+   "cpu_details": "ARMv8 (64-bit) Family 8 Model D49 Revision   0, MICROSOFT CORPORATION",
+   "python": "3.12.10",
+   "rechenzeit_s": 0.05,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 1.3877787807814457e-17,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "7a46ef3e80773968a6db22c4b3d08e266f78b5b1763d8f969ee56f39279e6ebc"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "ad929d15482aa1fb5e5feeb55c5d91bdd264f7570feb31f4a5e86457767b86ae",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000000",
+   "runner_os": "Windows",
+   "runner_arch": "ARM64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "windows-11-arm_3",
+   "os": "Windows",
+   "os_version": "Windows-11-10.0.26200-SP0",
+   "architektur": "ARM64",
+   "cpu_modell": "Cobalt 100",
+   "cpu_details": "ARMv8 (64-bit) Family 8 Model D49 Revision   0, MICROSOFT CORPORATION",
+   "python": "3.12.10",
+   "rechenzeit_s": 0.05,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 1.3877787807814457e-17,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "7a46ef3e80773968a6db22c4b3d08e266f78b5b1763d8f969ee56f39279e6ebc"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "ad929d15482aa1fb5e5feeb55c5d91bdd264f7570feb31f4a5e86457767b86ae",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000007",
+   "runner_os": "Windows",
+   "runner_arch": "ARM64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "windows-2022_1",
+   "os": "Windows",
+   "os_version": "Windows-2022Server-10.0.20348-SP0",
+   "architektur": "AMD64",
+   "cpu_modell": "AMD EPYC 9V45 96-Core Processor",
+   "cpu_details": "AMD64 Family 26 Model 2 Stepping 1, AuthenticAMD",
+   "python": "3.12.10",
+   "rechenzeit_s": 0.03,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 1.3877787807814457e-17,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "7a46ef3e80773968a6db22c4b3d08e266f78b5b1763d8f969ee56f39279e6ebc"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "f686e9e34648a97a250b45dee9a175ba2899fc4ab555e4765f66f8f8b525d164",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000028",
+   "runner_os": "Windows",
+   "runner_arch": "X64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "windows-2022_2",
+   "os": "Windows",
+   "os_version": "Windows-2022Server-10.0.20348-SP0",
+   "architektur": "AMD64",
+   "cpu_modell": "AMD EPYC 9V45 96-Core Processor",
+   "cpu_details": "AMD64 Family 26 Model 2 Stepping 1, AuthenticAMD",
+   "python": "3.12.10",
+   "rechenzeit_s": 0.03,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 1.3877787807814457e-17,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "7a46ef3e80773968a6db22c4b3d08e266f78b5b1763d8f969ee56f39279e6ebc"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "f686e9e34648a97a250b45dee9a175ba2899fc4ab555e4765f66f8f8b525d164",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000021",
+   "runner_os": "Windows",
+   "runner_arch": "X64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "windows-2022_3",
+   "os": "Windows",
+   "os_version": "Windows-2022Server-10.0.20348-SP0",
+   "architektur": "AMD64",
+   "cpu_modell": "INTEL(R) XEON(R) PLATINUM 8573C",
+   "cpu_details": "Intel64 Family 6 Model 207 Stepping 2, GenuineIntel",
+   "python": "3.12.10",
+   "rechenzeit_s": 0.03,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 1.3877787807814457e-17,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "7a46ef3e80773968a6db22c4b3d08e266f78b5b1763d8f969ee56f39279e6ebc"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "f686e9e34648a97a250b45dee9a175ba2899fc4ab555e4765f66f8f8b525d164",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000010",
+   "runner_os": "Windows",
+   "runner_arch": "X64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "windows-2025_1",
+   "os": "Windows",
+   "os_version": "Windows-2025Server-10.0.26100-SP0",
+   "architektur": "AMD64",
+   "cpu_modell": "AMD EPYC 7763 64-Core Processor",
+   "cpu_details": "AMD64 Family 25 Model 1 Stepping 1, AuthenticAMD",
+   "python": "3.12.10",
+   "rechenzeit_s": 0.05,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 1.3877787807814457e-17,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "7a46ef3e80773968a6db22c4b3d08e266f78b5b1763d8f969ee56f39279e6ebc"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "bd666372a18b4f94dc2160f66390fa2508350d3095b8d450ab1b6007613d0411",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000026",
+   "runner_os": "Windows",
+   "runner_arch": "X64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "windows-2025_2",
+   "os": "Windows",
+   "os_version": "Windows-2025Server-10.0.26100-SP0",
+   "architektur": "AMD64",
+   "cpu_modell": "AMD EPYC 9V74 80-Core Processor",
+   "cpu_details": "AMD64 Family 25 Model 17 Stepping 1, AuthenticAMD",
+   "python": "3.12.10",
+   "rechenzeit_s": 0.04,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 1.3877787807814457e-17,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "7a46ef3e80773968a6db22c4b3d08e266f78b5b1763d8f969ee56f39279e6ebc"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "bd666372a18b4f94dc2160f66390fa2508350d3095b8d450ab1b6007613d0411",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000011",
+   "runner_os": "Windows",
+   "runner_arch": "X64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  },
+  {
+   "label": "windows-2025_3",
+   "os": "Windows",
+   "os_version": "Windows-2025Server-10.0.26100-SP0",
+   "architektur": "AMD64",
+   "cpu_modell": "AMD EPYC 9V45 96-Core Processor",
+   "cpu_details": "AMD64 Family 26 Model 2 Stepping 1, AuthenticAMD",
+   "python": "3.12.10",
+   "rechenzeit_s": 0.03,
+   "tests": {
+    "T1_ring36_exakt": {
+     "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+     "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+     "summe_abweichung": 3.552713678800501e-15,
+     "abfall_soll": 0.9924038765061041,
+     "abfall_gemessen": 0.9924038765061043,
+     "abfall_abw_rel": 2.23744193449516e-16
+    },
+    "T2_phasenlauf": {
+     "windung_max_abw": 4.440892098500626e-16,
+     "knoten_max_abw_zur_referenz": 1.3877787807814457e-17,
+     "nachbardifferenz_min": 0.13255722623274835,
+     "nachbardifferenz_max": 0.20653597272194624,
+     "mittelwert_drift": 4.440892098500626e-16,
+     "geschwindigkeitsstreuung": 0.0012209547733821324,
+     "hash_endzustand": "7a46ef3e80773968a6db22c4b3d08e266f78b5b1763d8f969ee56f39279e6ebc"
+    },
+    "T3_eps0496": {
+     "abfall_langsam_soll": 0.9849292909881103,
+     "abfall_langsam_gemessen": 0.9849292909881104,
+     "abfall_nyquist_soll": 0.984,
+     "abfall_nyquist_gemessen": 0.984,
+     "abw_rel": 1.127210891973116e-16
+    },
+    "T4_N30": {
+     "N": 30,
+     "summe_lambda": 60.0,
+     "summe_lambda_soll": 60.0,
+     "produkt_lambda": 899.9999999999961,
+     "produkt_soll": 900.0,
+     "summe_kehrwert": 74.91666666666677,
+     "summe_kehrwert_soll": 74.91666666666667,
+     "abfall_soll": 0.9890738003669028,
+     "abfall_gemessen": 0.9890738003669028,
+     "abw_rel": 4.2948360917054945e-15
+    },
+    "T4_N70": {
+     "N": 70,
+     "summe_lambda": 140.0,
+     "summe_lambda_soll": 140.0,
+     "produkt_lambda": 4900.000000000082,
+     "produkt_soll": 4900.0,
+     "summe_kehrwert": 408.249999999999,
+     "summe_kehrwert_soll": 408.25,
+     "abfall_soll": 0.9979871469976196,
+     "abfall_gemessen": 0.9979871469976195,
+     "abw_rel": 1.670500472644154e-14
+    },
+    "T5_bibliothek": {
+     "fingerabdruck": "bd666372a18b4f94dc2160f66390fa2508350d3095b8d450ab1b6007613d0411",
+     "anzahl": 14000
+    }
+   },
+   "bestanden": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4_N30": true,
+    "T4_N70": true
+   },
+   "alle_bestanden": true,
+   "runner_name": "GitHub Actions 1000000014",
+   "runner_os": "Windows",
+   "runner_arch": "X64",
+   "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+   "lauf_id": "42529106396"
+  }
+ ]
+}

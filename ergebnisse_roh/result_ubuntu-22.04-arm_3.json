@@ -1,0 +1,77 @@
+{
+ "label": "ubuntu-22.04-arm_3",
+ "os": "Linux",
+ "os_version": "Linux-6.8.0-1070-azure-aarch64-with-glibc2.35",
+ "architektur": "aarch64",
+ "cpu_modell": "ARM 0x41 / 0xd49",
+ "cpu_details": "Architecture:                            aarch64\nCPU op-mode(s):                          32-bit, 64-bit\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               ARM\nModel:                                   0\nThread(s) per core:                      1\nCore(s) per socket:                      4\nSocket(s):                               1\nStepping:                                r0p0\nBogoMIPS:                                2000.00\nFlags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm uscat ilrcpc flagm ssbs sb paca pacg dcpodp sve2 sveaes svebitperm svesha3 svesm4 flagm2 frint svei8mm svebf16 i8mm bf16\nL1d cache:                               256 KiB (4 instances)\nL1i cache:                               256 KiB (4 instances)\nL2 cache:                                4 MiB (4 instances)\nL3 cache:                                128 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; CSV2, BHB\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+ "python": "3.12.16",
+ "rechenzeit_s": 0.01,
+ "tests": {
+  "T1_ring36_exakt": {
+   "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+   "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+   "summe_abweichung": 3.552713678800501e-15,
+   "abfall_soll": 0.9924038765061041,
+   "abfall_gemessen": 0.9924038765061043,
+   "abfall_abw_rel": 2.23744193449516e-16
+  },
+  "T2_phasenlauf": {
+   "windung_max_abw": 4.440892098500626e-16,
+   "knoten_max_abw_zur_referenz": 0.0,
+   "nachbardifferenz_min": 0.13255722623274835,
+   "nachbardifferenz_max": 0.20653597272194624,
+   "mittelwert_drift": 4.440892098500626e-16,
+   "geschwindigkeitsstreuung": 0.0012209547733821324,
+   "hash_endzustand": "8af60c475cbc84e82ac900a80653e96e4a3dd98bf8f75eb44e7e9dc4808bd276"
+  },
+  "T3_eps0496": {
+   "abfall_langsam_soll": 0.9849292909881103,
+   "abfall_langsam_gemessen": 0.9849292909881104,
+   "abfall_nyquist_soll": 0.984,
+   "abfall_nyquist_gemessen": 0.984,
+   "abw_rel": 1.127210891973116e-16
+  },
+  "T4_N30": {
+   "N": 30,
+   "summe_lambda": 60.0,
+   "summe_lambda_soll": 60.0,
+   "produkt_lambda": 899.9999999999961,
+   "produkt_soll": 900.0,
+   "summe_kehrwert": 74.91666666666677,
+   "summe_kehrwert_soll": 74.91666666666667,
+   "abfall_soll": 0.9890738003669028,
+   "abfall_gemessen": 0.9890738003669028,
+   "abw_rel": 4.2948360917054945e-15
+  },
+  "T4_N70": {
+   "N": 70,
+   "summe_lambda": 140.0,
+   "summe_lambda_soll": 140.0,
+   "produkt_lambda": 4900.000000000082,
+   "produkt_soll": 4900.0,
+   "summe_kehrwert": 408.249999999999,
+   "summe_kehrwert_soll": 408.25,
+   "abfall_soll": 0.9979871469976196,
+   "abfall_gemessen": 0.9979871469976195,
+   "abw_rel": 1.670500472644154e-14
+  },
+  "T5_bibliothek": {
+   "fingerabdruck": "7bc55133f6cbda49caaba5189f499dcf2abe5af0c2c9d3c522ec1d5acc8be236",
+   "anzahl": 14000
+  }
+ },
+ "bestanden": {
+  "T1": true,
+  "T2": true,
+  "T3": true,
+  "T4_N30": true,
+  "T4_N70": true
+ },
+ "alle_bestanden": true,
+ "runner_name": "GitHub Actions 1000000023",
+ "runner_os": "Linux",
+ "runner_arch": "ARM64",
+ "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+ "lauf_id": "42529106396"
+}

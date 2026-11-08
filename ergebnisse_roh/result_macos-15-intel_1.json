@@ -1,0 +1,77 @@
+{
+ "label": "macos-15-intel_1",
+ "os": "Darwin",
+ "os_version": "macOS-15.7.9-x86_64-i386-64bit",
+ "architektur": "x86_64",
+ "cpu_modell": "Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz",
+ "cpu_details": "hw.model: Macmini6,2\nhw.ncpu: 4",
+ "python": "3.12.10",
+ "rechenzeit_s": 0.15,
+ "tests": {
+  "T1_ring36_exakt": {
+   "hash_alle_schritte": "69f165765e409da339851d3314bf220271512a066da5c22d9fa9c43cbf73b9c7",
+   "hash_endzustand": "c62697373e7f7099b8ce189f24d439664274faf39b4cb41795d513941b468d0b",
+   "summe_abweichung": 3.552713678800501e-15,
+   "abfall_soll": 0.9924038765061041,
+   "abfall_gemessen": 0.9924038765061043,
+   "abfall_abw_rel": 2.23744193449516e-16
+  },
+  "T2_phasenlauf": {
+   "windung_max_abw": 4.440892098500626e-16,
+   "knoten_max_abw_zur_referenz": 1.3877787807814457e-17,
+   "nachbardifferenz_min": 0.13255722623274835,
+   "nachbardifferenz_max": 0.20653597272194624,
+   "mittelwert_drift": 4.440892098500626e-16,
+   "geschwindigkeitsstreuung": 0.0012209547733821324,
+   "hash_endzustand": "397e95fd3638f30b2ccadc38a70ba143a11e13980d99948caf47572d1a94f06b"
+  },
+  "T3_eps0496": {
+   "abfall_langsam_soll": 0.9849292909881103,
+   "abfall_langsam_gemessen": 0.9849292909881104,
+   "abfall_nyquist_soll": 0.984,
+   "abfall_nyquist_gemessen": 0.984,
+   "abw_rel": 1.127210891973116e-16
+  },
+  "T4_N30": {
+   "N": 30,
+   "summe_lambda": 60.0,
+   "summe_lambda_soll": 60.0,
+   "produkt_lambda": 899.9999999999961,
+   "produkt_soll": 900.0,
+   "summe_kehrwert": 74.91666666666677,
+   "summe_kehrwert_soll": 74.91666666666667,
+   "abfall_soll": 0.9890738003669028,
+   "abfall_gemessen": 0.9890738003669028,
+   "abw_rel": 4.2948360917054945e-15
+  },
+  "T4_N70": {
+   "N": 70,
+   "summe_lambda": 140.0,
+   "summe_lambda_soll": 140.0,
+   "produkt_lambda": 4900.000000000082,
+   "produkt_soll": 4900.0,
+   "summe_kehrwert": 408.249999999999,
+   "summe_kehrwert_soll": 408.25,
+   "abfall_soll": 0.9979871469976196,
+   "abfall_gemessen": 0.9979871469976195,
+   "abw_rel": 1.670500472644154e-14
+  },
+  "T5_bibliothek": {
+   "fingerabdruck": "f28fbc6136daa6bcb830a44be5c28af1aafd133c3be029ddc9758f18c8704c2c",
+   "anzahl": 14000
+  }
+ },
+ "bestanden": {
+  "T1": true,
+  "T2": true,
+  "T3": true,
+  "T4_N30": true,
+  "T4_N70": true
+ },
+ "alle_bestanden": true,
+ "runner_name": "GitHub Actions 1000000008",
+ "runner_os": "macOS",
+ "runner_arch": "X64",
+ "commit": "5fb5bfd94229176b61af806d7e1fed376594d268",
+ "lauf_id": "42529106396"
+}
