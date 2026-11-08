@@ -1,7 +1,8 @@
 VORHERSAGE WELTLAUF AUF CLOUDFLARE, festgelegt am 09.11.2026 vor dem Start
 
 Aufbau: 36 Knoten, jeder Knoten ein eigener Server (Cloudflare Durable Object, Ortshinweis wechselnd ueber 9 Weltregionen), jeder Knoten rechnet nur mit seinen zwei Nachbarn, kein Master, keine gemeinsame Uhr.
-Servercode (SHA-256): weltlauf/worker.js = 57bbf5657138fec803f1eb7e5f17241fa8a6c7e5d2b76fafebfd3df8fd175131
+Servercode (SHA-256): weltlauf/worker.js = 64e2338feb41164373469084ac419714bba6dee603fb6a1b6480edc7c46d5982
+                       weltlauf/page.txt (Berichtsseite) = 0fdc7769c2cb63063bba7b92693d34338d42d16ff1e877c38595c53a386c7d6c
 Sechs Laeufe (Parameter in weltlauf/steps.json, Vorhersagen in weltlauf/seal.json, berechnet mit weltlauf/gen.mjs):
  1 phase: Phasenlauf mit Sinus, K=4, Windung 1, 400 Schritte
  2 k2:    Phasenlauf, K=2, Windung 1, 40 Schritte

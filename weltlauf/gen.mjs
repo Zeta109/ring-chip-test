@@ -30,7 +30,7 @@ for(const [k,c] of Object.entries(RUNS)){
   SEAL[k]=e;
 }
 let t=fs.readFileSync('template.js','utf8'),pg=fs.readFileSync('page.js','utf8');
-t=t.replace('__PAGEJS__',()=>pg).replace('__RUNS__',()=>JSON.stringify(RUNS)).replace('__SEAL__',()=>JSON.stringify(SEAL));
+fs.writeFileSync('page.txt',pg);t=t.replace('__RUNS__',()=>JSON.stringify(RUNS)).replace('__SEAL__',()=>JSON.stringify(SEAL));
 fs.writeFileSync('worker.js',t);
 fs.writeFileSync('seal.json',JSON.stringify({RUNS,SEAL},null,1));
 console.log(Object.entries(SEAL).map(([k,v])=>k+' '+v.all.slice(0,12)+' '+v.final.slice(0,12)+(v.band?' band '+v.band:'')+(v.ref_wind_dev!==undefined?' wdev '+v.ref_wind_dev:'')).join('\n'));
