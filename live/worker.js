@@ -1,6 +1,6 @@
 const N = 36;
 const HINTS = ['weur','enam','apac','sam','eeur','wnam','oc','afr','me'];
-const LIVE_CAP = 5;
+const LIVE_CAP = 10;
 function mulberry32(a) {
   let s = a >>> 0;
   return function () {
@@ -15,14 +15,17 @@ function omegas(seed, B) {
   for (let i = 0; i < N; i++) { const v = Math.floor(r() * 13) - 6; u.push(v); m += v; }
   m /= N; return u.map(v => B * (v - m));
 }
-function cfg(run, seed) {
+function legacyOm(B) { let m = 0; for (let j = 0; j < N; j++) m += (7 * j) % 13; m /= N; const o = []; for (let i = 0; i < N; i++) o.push(B * (((7 * i) % 13) - m)); return o; }
+function cfg(run, seed, Q, B, legacy) {
   if (typeof run === 'string' && /^(live|tst)-\d{8}-\d{1,2}$/.test(run)) {
-    const c = { kind: 'phase', steps: 40, K: 4, DT: 0.05, B: 0.02, Q: 1, om: null };
-    if (seed !== undefined && seed !== null) c.om = omegas(seed, c.B);
+    const c = { kind: 'phase', steps: 40, K: 4, DT: 0.05, B: (B === undefined || B === null) ? 0.02 : B, Q: (Q === undefined || Q === null) ? 1 : Q, om: null };
+    if (legacy) c.om = legacyOm(c.B);
+    else if (seed !== undefined && seed !== null) c.om = omegas(seed, c.B);
     return c;
   }
   return null;
 }
+function predict(Q, B) { return { inRange: Q >= 0 && ((B <= 0.02 && Q <= 8) || (B <= 0.1 && Q <= 6) || (B <= 0.3 && Q <= 2)), w: Q }; }
 function hintOf(i) { return HINTS[(i + 1) % HINTS.length]; }
 function stub(env, run, i) { return env.RING.get(env.RING.idFromName(run + '-' + i), { locationHint: hintOf(i) }); }
 function x0(i, c) { return 2 * Math.PI * c.Q * i / N; }
@@ -39,13 +42,13 @@ export class RingNode {
     let s = this.s || await this.state.storage.get('s');
     if (!s) {
       const c = cfg(run);
-      s = { run, id, step: 0, hist: [x0(id, c)], gotL: {}, gotR: {}, sent: -1, target: 0, colo: null, fp: null, reqs: 0, mismatch: 0, seed: null, t0: null, t1: null };
+      s = { run, id, step: 0, hist: [x0(id, c)], gotL: {}, gotR: {}, sent: -1, target: 0, colo: null, fp: null, reqs: 0, mismatch: 0, seed: null, Q: null, B: null, t0: null, t1: null };
     }
     this.s = s; return s;
   }
   advance(s) {
     if (s.seed === null || s.seed === undefined) return;
-    const c = cfg(s.run, s.seed); let n = 0;
+    const c = cfg(s.run, s.seed, s.Q, s.B); let n = 0;
     while (s.step < s.target && s.gotL[s.step] !== undefined && s.gotR[s.step] !== undefined && n < 40) {
       s.hist.push(nextX(s.id, s.hist[s.step], s.gotR[s.step], s.gotL[s.step], c)); s.step++; n++;
     }
@@ -62,22 +65,27 @@ export class RingNode {
     const s = await this.load(run, id); s.reqs++;
     if (u.pathname === '/start') {
       const t = parseInt(u.searchParams.get('steps'), 10); const seed = parseInt(u.searchParams.get('seed'), 10);
-      if (s.seed === null || s.seed === undefined) { s.seed = seed >>> 0; s.t0 = parseInt(u.searchParams.get('t0'), 10); }
+      if (s.seed === null || s.seed === undefined) {
+        s.seed = seed >>> 0; s.t0 = parseInt(u.searchParams.get('t0'), 10);
+        s.Q = parseInt(u.searchParams.get('q'), 10); s.B = parseFloat(u.searchParams.get('b'));
+        if (s.step === 0) s.hist = [x0(s.id, { Q: s.Q })];
+      }
       if (t > s.target) s.target = t;
+      this.advance(s);
       await this.state.storage.put('s', s); await this.state.storage.setAlarm(Date.now()); return Response.json({ ok: true });
     }
     if (u.pathname === '/deliver') {
       const b = await req.json(); const g = b.side === 'L' ? s.gotL : s.gotR;
       for (const [st, v] of b.items) { if (g[st] === undefined) g[st] = v; else if (g[st] !== v) s.mismatch++; }
       this.advance(s); await this.state.storage.put('s', s);
-      if (s.sent < s.step) await this.state.storage.setAlarm(Date.now());
+      if (s.seed !== null && s.sent < s.step) await this.state.storage.setAlarm(Date.now());
       return Response.json({ ok: true });
     }
-    if (u.pathname === '/info') { await this.state.storage.put('s', s); return Response.json({ id: s.id, step: s.step, target: s.target, colo: s.colo, fp: s.fp, hint: hintOf(s.id), reqs: s.reqs, mismatch: s.mismatch, seed: s.seed, t0: s.t0, t1: s.t1, err: s.err || null, sent: s.sent, hist: s.hist }); }
+    if (u.pathname === '/info') { await this.state.storage.put('s', s); return Response.json({ id: s.id, step: s.step, target: s.target, colo: s.colo, fp: s.fp, hint: hintOf(s.id), reqs: s.reqs, mismatch: s.mismatch, seed: s.seed, Q: s.Q, B: s.B, t0: s.t0, t1: s.t1, err: s.err || null, sent: s.sent, hist: s.hist }); }
     return Response.json({ error: 'unknown' }, { status: 404 });
   }
   async alarm() {
-    let s = this.s || await this.state.storage.get('s'); if (!s) return; this.s = s; s.reqs++;
+    let s = this.s || await this.state.storage.get('s'); if (!s) return; this.s = s; if (s.seed === null && s.step === 0 && s.hist.length === 1 && s.target === 0) return; s.reqs++;
     const run = s.run, id = s.id, L = (id + N - 1) % N, R = (id + 1) % N;
     if (!s.colo) {
       try { const t = await (await fetch('https://www.cloudflare.com/cdn-cgi/trace', { signal: AbortSignal.timeout(3000) })).text(); const m = t.match(/colo=(\w+)/); s.colo = m ? m[1] : 'unknown'; } catch (e) { s.colo = 'unknown'; }
@@ -123,7 +131,7 @@ async function nodes(env, run) {
   return Promise.all(Array.from({ length: N }, (_, i) => i).map(async i => (await stub(env, run, i).fetch('https://n/info?run=' + run + '&id=' + i)).json()));
 }
 function tfmt(ms) {
-  if (!ms) return '–';
+  if (!ms || !isFinite(ms)) return '–';
   const d = new Date(ms);
   const z = d.toISOString().slice(11, 19) + ' UTC';
   let b = ''; try { b = d.toLocaleTimeString('de-DE', { timeZone: 'Europe/Berlin', hour12: false }) + ' MEZ'; } catch (e) { }
@@ -131,16 +139,18 @@ function tfmt(ms) {
 }
 async function evaluate(env, run) {
   const ns = await nodes(env, run);
-  const seed = ns[0].seed; const started = seed !== null && seed !== undefined;
-  const out = { run, started, nodes: ns, seed, steps: 40 };
+  const seed = ns[0].seed; const legacy = (seed === null || seed === undefined) && ns[0].step > 0;
+  const started = (seed !== null && seed !== undefined) || legacy;
+  const out = { run, started, legacy, nodes: ns, seed, steps: 40 };
   if (!started) return out;
-  const c = cfg(run, seed); out.c = c;
-  out.seedsOK = ns.every(n => n.seed === seed);
+  const Q = legacy ? 1 : ns[0].Q, B = legacy ? 0.02 : ns[0].B;
+  const c = cfg(run, seed, Q, B, legacy); out.c = c; out.Q = Q; out.B = B; out.pred = predict(Q, B);
+  out.seedsOK = legacy ? true : ns.every(n => n.seed === seed);
   out.minStep = Math.min(...ns.map(n => n.step));
-  out.t0 = Math.min(...ns.map(n => n.t0 || Infinity));
+  out.t0 = legacy ? null : Math.min(...ns.map(n => n.t0 || Infinity));
   out.done = ns.every(n => n.step >= c.steps);
   if (out.done) {
-    out.t1 = Math.max(...ns.map(n => n.t1 || 0));
+    out.t1 = legacy ? null : Math.max(...ns.map(n => n.t1 || 0));
     const th = ns.map(n => n.hist[c.steps]); let w = 0; for (let i = 0; i < N; i++) w += wrap(th[(i + 1) % N] - th[i]);
     out.winding = w / (2 * Math.PI);
     const H = reference(c); let md = 0; for (let i = 0; i < N; i++) for (let t = 0; t <= c.steps; t++) md = Math.max(md, Math.abs(ns[i].hist[t] - H[i][t]));
@@ -158,12 +168,18 @@ async function evaluate(env, run) {
 }
 const TITLE = 'Was der Raum weiß, bevor er sich bewegt';
 const HEAD = '<h1>' + TITLE + '</h1><p class="sub"><i>What space knows before it moves.</i></p><p><i>36 Knoten auf Servern in aller Welt. Jeder Knoten kennt nur seinen linken und seinen rechten Nachbarn. Es gibt keine Zentrale und keine gemeinsame Uhr.</i></p>';
-function code(seed) {
-  return 'import math\nN,K,DT,B,T = 36,4,0.05,0.02,40\nseed = ' + seed + '\n' +
+function code(seed, Q, B) {
+  return 'import math\nN,K,DT,T = 36,4,0.05,40\nQ,B = ' + Q + ',' + B + '\nseed = ' + seed + '\n' +
 'def mulberry32(a):\n    s=[a & 0xFFFFFFFF]\n    def nxt():\n        s[0]=(s[0]+0x6D2B79F5)&0xFFFFFFFF; t=s[0]\n        t=((t^(t>>15))*(t|1))&0xFFFFFFFF\n        t^=(t+(((t^(t>>7))*(t|61))&0xFFFFFFFF))&0xFFFFFFFF\n        return ((t^(t>>14))&0xFFFFFFFF)/4294967296\n    return nxt\n' +
-'r=mulberry32(seed); u=[math.floor(r()*13)-6 for _ in range(N)]; m=sum(u)/N\nom=[B*(v-m) for v in u]\nth=[2*math.pi*i/N for i in range(N)]\n' +
+'r=mulberry32(seed); u=[math.floor(r()*13)-6 for _ in range(N)]; m=sum(u)/N\nom=[B*(v-m) for v in u]\nth=[2*math.pi*Q*i/N for i in range(N)]\n' +
 'for t in range(T):\n    th=[th[i]+DT*(om[i]+K*(math.sin(th[(i+1)%N]-th[i])+math.sin(th[(i-1)%N]-th[i]))) for i in range(N)]\n' +
-'w=lambda y:(y+math.pi)%(2*math.pi)-math.pi\nprint(sum(w(th[(i+1)%N]-th[i]) for i in range(N))/(2*math.pi))  # 1.0\nprint(["%.6f"%v for v in th])';
+'w=lambda y:(y+math.pi)%(2*math.pi)-math.pi\nprint(sum(w(th[(i+1)%N]-th[i]) for i in range(N))/(2*math.pi))  # = Q\nprint(["%.6f"%v for v in th])';
+}
+function predText(e) {
+  return e.pred.inRange ? 'Windung = Q = ' + e.Q : 'außerhalb des Erhaltungsbereichs (Q ≤ 8 bei B = 0,02 · Q ≤ 6 bei B = 0,1 · Q ≤ 2 bei B = 0,3): keine Vorhersage, der Wert wird so gemeldet, wie er herauskommt';
+}
+function paramRow(e) {
+  return '<tr><td>Eingabe dieses Laufs</td><td class="mono">Startzustand mit Windung Q = ' + e.Q + ' · Breite der Eigenfrequenzen B = ' + e.B + '</td></tr>';
 }
 function runPage(e) {
   const run = e.run; let b = HEAD + '<h2>Lauf ' + esc(run) + '</h2>';
@@ -174,29 +190,28 @@ function runPage(e) {
     b += '<p><span class="live"><i></i>LÄUFT LIVE</span></p>' +
       '<p class="big">Schritt ' + e.minStep + ' von ' + e.steps + '</p><div class="bar"><b style="width:' + pct + '%"></b></div>' +
       '<table><tr><td>Gestartet</td><td>' + tfmt(e.t0) + '</td></tr><tr><td>Serverzeit jetzt</td><td>' + tfmt(now) + '</td></tr><tr><td>Laufzeit bisher</td><td>' + ((now - e.t0) / 1000).toFixed(1) + ' s</td></tr>' +
-      '<tr><td>Eigenfrequenzen dieses Laufs (aus der Kennzahl gezogen)</td><td class="mono">Kennzahl ' + e.seed + '</td></tr></table>' +
-      '<p>Vorhersage für diesen Lauf, unabhängig von den Eigenfrequenzen: Windung 1, Verschiebung des Mittelwerts 0, Abweichung jedes Knotens von der lokalen Referenzrechnung 0. Die Seite lädt sich alle 2 Sekunden neu.</p>' +
+      '<tr><td>Eigenfrequenzen dieses Laufs (aus der Kennzahl gezogen)</td><td class="mono">Kennzahl ' + (e.legacy ? 'feste Reihe' : e.seed) + '</td></tr>' + paramRow(e) + '</table>' +
+      '<p>Vorhersage für diese Eingabe, vor dem Ergebnis: <b>' + predText(e) + '</b>; Verschiebung des Mittelwerts 0; Abweichung jedes Knotens von der lokalen Referenzrechnung 0. Die Seite lädt sich alle 2 Sekunden neu.</p>' +
       '<h2>Die 36 Knoten jetzt</h2><div class="grid">' + e.nodes.map(n => '<div>Knoten ' + n.id + ' · <span class="mono">' + esc(n.colo || '…') + '</span> · Schritt ' + n.step + '</div>').join('') + '</div>';
     return b;
   }
-  const dur = ((e.t1 - e.t0) / 1000).toFixed(1);
+  const dur = e.legacy ? '' : ((e.t1 - e.t0) / 1000).toFixed(1);
   b += '<p><span class="live done"><i></i>LAUF ABGESCHLOSSEN</span></p>' +
     '<table><tr><th>Größe</th><th>Wert</th></tr>' +
-    '<tr><td>Gestartet (Serverzeit)</td><td>' + tfmt(e.t0) + '</td></tr>' +
-    '<tr><td>Beendet (Serverzeit)</td><td>' + tfmt(e.t1) + ' · Dauer ' + dur + ' s</td></tr>' +
-    '<tr><td>Eigenfrequenzen dieses Laufs</td><td class="mono">Kennzahl ' + e.seed + ' · Summe ' + e.omsum.toExponential(1) + (e.seedsOK ? ' · bei allen 36 Knoten gleich' : ' · ABWEICHUNG') + '</td></tr>' +
+    (e.legacy ? '' : '<tr><td>Gestartet (Serverzeit)</td><td>' + tfmt(e.t0) + '</td></tr><tr><td>Beendet (Serverzeit)</td><td>' + tfmt(e.t1) + ' · Dauer ' + dur + ' s</td></tr>') +
+    '<tr><td>Eigenfrequenzen dieses Laufs</td><td class="mono">' + (e.legacy ? 'feste Reihe (Version vom Vormittag des 9. November)' : 'Kennzahl ' + e.seed) + ' · Summe ' + e.omsum.toExponential(1) + (e.seedsOK ? ' · bei allen 36 Knoten gleich' : ' · ABWEICHUNG') + '</td></tr>' + paramRow(e) +
     '<tr><td>Knoten</td><td>36, geschlossen: Knoten i kennt i−1 und i+1 (mod 36)</td></tr>' +
     '<tr><td>Schritte</td><td>' + e.steps + ' (alle 36 Knoten)</td></tr>' +
-    '<tr><td>Windung aus den letzten Phasen (Vorhersage: 1)</td><td class="ok">' + e.winding.toFixed(9) + ' · bestanden</td></tr>' +
-    '<tr><td>größte Abweichung jedes Knotens von der lokalen Referenzrechnung, über alle Schritte (Vorhersage: 0)</td><td class="mono">' + e.maxdev.toExponential(2) + '</td></tr>' +
+    '<tr><td>Windung aus den letzten Phasen (Vorhersage: ' + esc(predText(e)) + ')</td><td class="' + (e.pred.inRange ? 'ok' : 'mono') + '">' + e.winding.toFixed(9) + (e.pred.inRange && Math.abs(e.winding - e.Q) < 1e-6 ? ' · bestanden' : '') + '</td></tr>' +
+    '<tr><td>größte Abweichung jedes Knotens von der lokalen Referenzrechnung, über alle Schritte (Vorhersage: 0)</td><td class="' + (e.maxdev < 1e-12 ? 'ok' : 'mono') + '">' + e.maxdev.toExponential(2) + (e.maxdev < 1e-12 ? ' · bestanden' : '') + '</td></tr>' +
     '<tr><td>Verschiebung des Mittelwerts aller Phasen (Vorhersage: 0)</td><td class="mono">' + e.meanshift.toExponential(2) + '</td></tr>' +
     '<tr><td>größte Phasendifferenz zweier Nachbarn im ganzen Lauf (Grenze π = 3.14159)</td><td class="mono">' + e.maxdiff.toFixed(5) + '</td></tr>' +
     '<tr><td>Widersprüche zwischen empfangenen Kopien eines Wertes</td><td class="ok">' + e.mismatch + ' · bestanden</td></tr>' +
     '<tr><td>Rechenzentren (Kennung)</td><td class="mono">' + e.colos.length + ': ' + esc(e.colos.join(', ')) + '</td></tr>' +
     '<tr><td>SHA-256 aller Werte aller Knoten</td><td class="mono">' + e.sha + '</td></tr></table>' +
     '<p>Rohwerte als JSON: <a href="/data?run=' + esc(run) + '">/data?run=' + esc(run) + '</a>. Phase jedes Knotens im letzten Schritt:</p><p class="mono">' + e.nodes.map(n => n.hist[e.steps].toFixed(6)).join(' · ') + '</p>' +
-    '<p>Jeder Lauf zieht seine Eigenfrequenzen neu aus der Kennzahl, die beim Start des Laufs gewürfelt wird. Die Endphasen sind darum in jedem Lauf andere; Windung 1, Mittelwert und Abweichung 0 bleiben.</p>' +
-    '<details><summary>Diesen Lauf nachrechnen (Python, zwölf Zeilen plus Zufallsfunktion)</summary><pre>' + esc(code(e.seed)) + '</pre></details>' +
+    '<p>Die Windung des Ergebnisses ist die Windung der Eingabe: sie ist erhalten, solange der Startzustand stabil ist und die Eigenfrequenzen klein gegen die rückstellende Kopplung sind (Q ≤ 8 bei B = 0,02 · Q ≤ 6 bei B = 0,1 · Q ≤ 2 bei B = 0,3; in 400 Zufallsläufen je Feld ohne Ausnahme). Außerhalb dieses Bereichs geht sie verloren, und die Seite meldet, was herauskommt.</p>' +
+    (e.legacy ? '' : '<details><summary>Diesen Lauf nachrechnen (Python)</summary><pre>' + esc(code(e.seed, e.Q, e.B)) + '</pre></details>') +
     '<p>Serverzeit beim Aufruf dieser Seite: ' + tfmt(now) + '</p>';
   return b;
 }
@@ -211,11 +226,13 @@ export default {
         if (testMode) name = 'tst-' + today + '-' + (Date.now() % 100);
         else {
           const g = await (await stub(env, 'gate-' + today, 0).fetch('https://n/gate?run=gate-' + today + '&id=0')).json();
-          if (!g.ok) return reply(html(TITLE, HEAD + '<p>Die fünf Live-Läufe dieses Tages sind gestartet. Sie stehen auf der <a href="/">Startseite</a> zur Prüfung bereit. Ab 01:00 Uhr deutscher Zeit gibt es fünf neue.</p>'));
+          if (!g.ok) return reply(html(TITLE, HEAD + '<p>Die zehn Live-Läufe dieses Tages sind gestartet. Sie stehen auf der <a href="/">Startseite</a> zur Prüfung bereit. Ab 01:00 Uhr deutscher Zeit gibt es zehn neue.</p>'));
           name = 'live-' + today + '-' + g.index;
         }
+        let q = parseInt(u.searchParams.get('q') || '1', 10); let b = parseFloat(u.searchParams.get('b') || '0.02');
+        if (!(q >= 0 && q <= 17)) q = 1; if (![0.02, 0.1, 0.3, 1].includes(b)) b = 0.02;
         const seed = crypto.getRandomValues(new Uint32Array(1))[0]; const t0 = Date.now();
-        await Promise.all(Array.from({ length: N }, (_, i) => i).map(i => stub(env, name, i).fetch('https://n/start?run=' + name + '&id=' + i + '&steps=40&seed=' + seed + '&t0=' + t0)));
+        await Promise.all(Array.from({ length: N }, (_, i) => i).map(i => stub(env, name, i).fetch('https://n/start?run=' + name + '&id=' + i + '&steps=40&seed=' + seed + '&t0=' + t0 + '&q=' + q + '&b=' + b)));
         return Response.redirect(new URL('/pruefung?run=' + name, request.url).toString(), 302);
       }
       if (u.pathname === '/data' || u.pathname === '/pruefung') {
@@ -233,6 +250,10 @@ export default {
     } catch (e) { return Response.json({ error: String(e) }, { status: 503 }); }
     const gs = await (await stub(env, 'gate-' + today, 0).fetch('https://n/gstat?run=gate-' + today + '&id=0')).json();
     let rows = ''; for (let k = 1; k <= LIVE_CAP; k++) rows += '<li>' + (k <= gs.used ? '<a href="/pruefung?run=live-' + today + '-' + k + '">live-' + today + '-' + k + '</a> · gestartet' : 'live-' + today + '-' + k + ' · noch frei') + '</li>';
-    return reply(html(TITLE, HEAD + '<p><a class="btn" href="/live">Neuen Live-Lauf starten</a></p><p>Ein Lauf besteht aus 36 Knoten und 40 Schritten und dauert etwa eine Minute. Du landest direkt auf der Prüfseite und siehst den Lauf, solange er rechnet. Jeder Lauf würfelt seine Eigenfrequenzen neu; die Vorhersage (Windung 1, Mittelwert unverändert, Abweichung 0) gilt für jeden davon.</p><h2>Heutige Läufe (UTC-Datum ' + today + ')</h2><ul>' + rows + '</ul><h2>Der Lauf vom 9. November 2026</h2><p>Sechs Läufe auf 31 Rechenzentren, mit Vorhersage und Prüfsummen: <a href="https://github.com/Zeta109/ring-chip-test/tree/main/weltlauf/ergebnis">github.com/Zeta109/ring-chip-test</a>.</p>'));
+    const opt = (v, t, sel) => '<option value="' + v + '"' + (sel ? ' selected' : '') + '>' + t + '</option>';
+    const form = '<form action="/live" method="get"><p><label>Windung des Startzustands Q: <select name="q">' + [0, 1, 2, 3, 4, 5, 6, 7, 8].map(v => opt(v, v, v === 1)).join('') + opt(10, '10 · Gegenprobe', false) + opt(12, '12 · Gegenprobe', false) + '</select></label></p>' +
+      '<p><label>Breite der Eigenfrequenzen B: <select name="b">' + opt('0.02', '0,02 · Standard', true) + opt('0.1', '0,1', false) + opt('0.3', '0,3', false) + opt('1', '1,0 · Gegenprobe', false) + '</select></label></p>' +
+      '<p><button class="btn" type="submit">Neuen Live-Lauf starten</button></p></form>';
+    return reply(html(TITLE, HEAD + '<h2>Live-Lauf starten</h2>' + form + '<p>Ein Lauf besteht aus 36 Knoten und 40 Schritten und dauert etwa eine Minute. Du landest direkt auf der Prüfseite und siehst den Lauf, solange er rechnet. Jeder Lauf würfelt seine Eigenfrequenzen neu. Die Vorhersage richtet sich nach deiner Eingabe: das Ergebnis ist die Windung, die du eingibst, solange sie im Erhaltungsbereich liegt (Q ≤ 8 bei B = 0,02 · Q ≤ 6 bei B = 0,1 · Q ≤ 2 bei B = 0,3). Außerhalb davon, auch bei den Gegenproben (Q ≥ 10 oder B = 1), gibt es keine Vorhersage; die Seite meldet, was herauskommt, und dort geht die Windung in der Regel verloren.</p><h2>Heutige Läufe (UTC-Datum ' + today + ')</h2><ul>' + rows + '</ul><h2>Der Lauf vom 9. November 2026</h2><p>Sechs Läufe auf 31 Rechenzentren, mit Vorhersage und Prüfsummen: <a href="https://github.com/Zeta109/ring-chip-test/tree/main/weltlauf/ergebnis">github.com/Zeta109/ring-chip-test</a>.</p>'));
   }
 };
