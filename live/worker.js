@@ -129,8 +129,8 @@ async function evaluate(env, run) {
   }
   return out;
 }
-const TITLE = 'Was der Ring weiß, bevor er sich bewegt';
-const HEAD = '<h1>' + TITLE + '</h1><p><i>36 Knoten auf Servern in aller Welt. Jeder Knoten kennt nur seinen linken und seinen rechten Nachbarn. Es gibt keine Zentrale und keine gemeinsame Uhr.</i></p>';
+const TITLE = 'Was der Raum weiß, bevor er sich bewegt';
+const HEAD = '<h1>' + TITLE + '</h1><p><i>What space knows before it moves.</i></p><p><i>36 Knoten auf Servern in aller Welt. Jeder Knoten kennt nur seinen linken und seinen rechten Nachbarn. Es gibt keine Zentrale und keine gemeinsame Uhr.</i></p>';
 export default {
   async fetch(request, env) {
     const u = new URL(request.url); const run = u.searchParams.get('run');

@@ -1,4 +1,4 @@
-# Live-Schaltung: „Was der Ring weiß, bevor er sich bewegt“
+# Live-Schaltung: „Was der Raum weiß, bevor er sich bewegt“ (What space knows before it moves)
 
 36 Knoten auf Cloudflare-Servern, jeder kennt nur seinen linken und seinen rechten Nachbarn, keine Zentrale, keine gemeinsame Uhr.
 Seite: https://md-v-ring-live.zeta1-09.workers.dev/  (Knopf „Neuen Live-Lauf starten“, fünf Läufe je Tag, 40 Schritte)
