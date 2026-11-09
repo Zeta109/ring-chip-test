@@ -1,7 +1,7 @@
 const N = 36;
 const HINTS = ['weur','enam','apac','sam','eeur','wnam','oc','afr','me'];
-const LIVE_CAP = 10;
-const STR_CAP = 6;
+const LIVE_CAP = 100;
+const STR_CAP = 60;
 function mulberry32(a) {
   let s = a >>> 0;
   return function () {
@@ -347,7 +347,7 @@ export default {
         if (testMode) name = 'tst-' + today + '-' + (Date.now() % 100);
         else {
           const g = await (await stub(env, 'gate-' + today, 0).fetch('https://n/gate?run=gate-' + today + '&id=0')).json();
-          if (!g.ok) return reply(html(TITLE, HEAD + '<p>Die zehn Live-Läufe dieses Tages sind gestartet. Sie stehen auf der <a href="/">Startseite</a> zur Prüfung bereit. Ab 01:00 Uhr deutscher Zeit gibt es zehn neue.</p>'));
+          if (!g.ok) return reply(html(TITLE, HEAD + '<p>Die 100 Live-Läufe dieses Tages sind gestartet. Sie stehen auf der <a href="/">Startseite</a> zur Prüfung bereit. Ab 01:00 Uhr deutscher Zeit gibt es 100 neue.</p>'));
           name = 'live-' + today + '-' + g.index;
         }
         let q = parseInt(u.searchParams.get('q') || '1', 10); let b = parseFloat(u.searchParams.get('b') || '0.02');
@@ -362,7 +362,7 @@ export default {
         if (sTest) name = 'str-' + today + '-' + (10 + Date.now() % 90);
         else {
           const g = await (await stub(env, 'sgate-' + today, 0).fetch('https://n/gate?run=sgate-' + today + '&id=0&cap=' + STR_CAP)).json();
-          if (!g.ok) return reply(html(TITLE, HEAD + '<p>Die sechs Struktur-Läufe dieses Tages sind gestartet. Sie stehen auf der <a href="/">Startseite</a> zur Ansicht bereit. Ab 01:00 Uhr deutscher Zeit gibt es sechs neue.</p>'));
+          if (!g.ok) return reply(html(TITLE, HEAD + '<p>Die 60 Struktur-Läufe dieses Tages sind gestartet. Sie stehen auf der <a href="/">Startseite</a> zur Ansicht bereit. Ab 01:00 Uhr deutscher Zeit gibt es 60 neue.</p>'));
           name = 'str-' + today + '-' + g.index;
         }
         const seed = crypto.getRandomValues(new Uint32Array(1))[0]; const t0 = Date.now();
@@ -391,7 +391,7 @@ export default {
       }
     } catch (e) { return Response.json({ error: String(e) }, { status: 503 }); }
     const gs = await (await stub(env, 'gate-' + today, 0).fetch('https://n/gstat?run=gate-' + today + '&id=0')).json();
-    let rows = ''; for (let k = 1; k <= LIVE_CAP; k++) rows += '<li>' + (k <= gs.used ? '<a href="/pruefung?run=live-' + today + '-' + k + '">live-' + today + '-' + k + '</a> · gestartet' : 'live-' + today + '-' + k + ' · noch frei') + '</li>';
+    let rows = ''; for (let k = Math.max(1, gs.used - 9); k <= gs.used; k++) rows += '<li><a href="/pruefung?run=live-' + today + '-' + k + '">live-' + today + '-' + k + '</a> · gestartet</li>'; if (!gs.used) rows = '<li>Heute noch kein Lauf gestartet.</li>';
     const opt = (v, t, sel) => '<option value="' + v + '"' + (sel ? ' selected' : '') + '>' + t + '</option>';
     const form = '<form action="/live" method="get"><p><label>Windung des Startzustands Q: <select name="q">' + [0, 1, 2, 3, 4, 5, 6, 7, 8].map(v => opt(v, v, v === 1)).join('') + opt(10, '10 · Gegenprobe', false) + opt(12, '12 · Gegenprobe', false) + '</select></label></p>' +
       '<p><label>Breite der Eigenfrequenzen B: <select name="b">' + opt('0.02', '0,02 · Standard', true) + opt('0.1', '0,1', false) + opt('0.3', '0,3', false) + opt('1', '1,0 · Gegenprobe', false) + '</select></label></p>' +
