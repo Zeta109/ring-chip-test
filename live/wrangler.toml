@@ -1,0 +1,9 @@
+name = "md-v-ring-live"
+main = "worker.js"
+compatibility_date = "2025-06-01"
+[[durable_objects.bindings]]
+name = "RING"
+class_name = "RingNode"
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["RingNode"]
