@@ -1,0 +1,2 @@
+9ba4db80688743566b34395500f0457a904de4ed332d81d4f6f3d2f13b89d384  Ringtest_Cloudflare_Finallauf.pdf
+ad46baad7560a18ce9be6613c769cbd2dd212342d4dcf31e43a38c613cb704f6  ringtest_rohdaten.json
