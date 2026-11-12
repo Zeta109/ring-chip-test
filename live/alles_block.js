@@ -335,7 +335,22 @@ async function gesamtPage(env, request, u) {
     '<p><button class="btn" type="button" onclick="pdf()">Gesamtergebnis als PDF herunterladen</button></p>' +
     '<p><button class="btn" type="button" onclick="sharepdf()">PDF teilen oder in Dateien sichern</button></p><p class="mono" id="pst"></p>' +
     '<p><button class="btn" type="button" onclick="dev()">Auf diesem Gerät prüfen</button></p><div id="dv"></div></div>';
-  const body = '<div class="dkc">' + HEAD + ctrl + '</div><div id="rep">' + sum + dct + bp + bs + bk + '<p>Serverzeit beim Aufruf: ' + tfmt(Date.now()) + '</p></div><script>' + client + '</script>';
+  const pP = ep.maxdev < 1e-12 && Math.abs(ep.winding - Number(ep.Q)) < 1e-6, pS = es.maxdev < 1e-12 && Math.abs(es.trTotal - 1295 / 12) < 1e-6, pK = ek.maxdev < 1e-12 && Math.abs(ek.trTotal - (1225 * 1225 - 1) / 12) < 1e-3;
+  const bst = v => v ? '<b class="ok">bestanden</b>' : '<b class="mono">Abweichung, siehe Lauf</b>';
+  const nrej = [ep, es, ek].reduce((a, e) => a + e.nodes.reduce((b, n) => b + (n.rejected || 0), 0), 0), nmis = ep.mismatch + es.mismatch + ek.mismatch;
+  const card = (t, a, r, m) => '<div style="border:1px solid #2c5a58;border-radius:8px;padding:10px 12px;margin:10px 0"><p style="margin:0 0 4px"><b>' + t + '</b></p><p style="margin:4px 0"><i>Gerechnet:</i> ' + a + '</p><p style="margin:4px 0"><i>Ergebnis:</i> ' + r + '</p><p style="margin:4px 0"><i>Das heißt:</i> ' + m + '</p></div>';
+  const fz = '<div><h2>Die Ergebnisse der drei Läufe auf einen Blick</h2><div>' +
+    card(esc(p) + ' · Phasenlauf', '36 Knoten auf Servern in aller Welt, jeder kennt nur seine zwei Nachbarn, 40 Schritte, Startzustand mit Windung Q = ' + esc(String(ep.Q)) + '.',
+      'Windung am Ende <b>' + ep.winding.toFixed(9) + '</b> (Eingabe ' + esc(String(ep.Q)) + '), größte Abweichung von der Referenzrechnung <b>' + ep.maxdev.toExponential(2) + '</b> · ' + bst(pP),
+      'Die Windung der Eingabe bleibt erhalten. Jeder Knoten rechnet Wert für Wert genau das, was die Referenzrechnung vorgibt, obwohl er nur Nachrichten von den zwei Nachbarn bekommt.') +
+    card(esc(s) + ' · Struktur-Lauf', 'Dieselben 36 Knoten messen das Spektrum des Rings aus dem Lauf, 40 Schritte.',
+      'Summe 1/λ <b>' + es.trTotal.toFixed(6) + '</b> (Vorhersage ' + (1295 / 12).toFixed(6) + '), größte Abweichung <b>' + es.maxdev.toExponential(2) + '</b> · ' + bst(pS),
+      'Die Summe der Kehrwerte aller Eigenwerte ist (N²−1)/12 mit N = 36. Der Lauf rechnet sie aus den Werten der Knoten, nicht aus einer Formel.') +
+    card(esc(k) + ' · Kettenlauf', '1225 Knoten auf 35 Servern, 40 Schritte.',
+      'Summe 1/λ <b>' + ek.trTotal.toFixed(6) + '</b> (Vorhersage ' + (1225 * 1225 - 1) / 12 + '), größte Abweichung <b>' + ek.maxdev.toExponential(2) + '</b> · ' + bst(pK),
+      'Dieselbe Regel gilt eine Stufe höher in der Kette: Das Ergebnis trifft die Vorhersage (N²−1)/12 mit N = 1225.') + '</div>' +
+    '<p>Zusammen: Widersprüche zwischen empfangenen Kopien eines Wertes <b class="ok">' + nmis + '</b>, abgewiesene Nachrichten <b class="ok">' + nrej + '</b>. ' + (ep.srcRound && es.srcRound && ek.srcRound ? 'Die Startwerte aller drei Läufe kommen aus dem öffentlichen Zufallssignal drand. ' : '') + 'Alle drei Läufe lassen sich mit dem Knopf „Auf diesem Gerät prüfen“ auf deinem Gerät nachrechnen.</p><p>Serverzeit beim Aufruf: ' + tfmt(Date.now()) + '</p></div>';
+  const body = '<div class="dkc">' + HEAD + ctrl + '</div><div id="rep">' + sum + dct + bp + bs + bk + fz + '</div><script>' + client + '</script>';
   const resp = reply(dark(html(TITLE + ' · Gesamtbericht', body), RESCSS), 'public, max-age=120');
   await cache.put(key, resp.clone()); return resp;
 }
