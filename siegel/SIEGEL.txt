@@ -9,3 +9,13 @@ Gestempelt am 18.11.2026 um 21:03:59 Uhr GMT (22:03:59 Berlin).
    Pruefen: ots verify PREDICTION_NATUR.txt.alice.ots   (pip install opentimestamps-client)
    Nach der Bitcoin-Bestaetigung (Stunden): ots upgrade PREDICTION_NATUR.txt.alice.ots, danach ots verify.
 3. Git: Commit 842dc02368e2e113393c3c3115e2b61118098c7a, 18.11.2026 21:11:23 Uhr (Berlin).
+
+SIEGEL DER DATEI PREDICTION_KNOTEN.txt
+SHA-256: 06323c32b3c9a211a4bc5ffdb98acd223800c40e7f4222e2b30cc00dbe595499
+Gestempelt am 18.11.2026 um 22:53:13 Uhr GMT (23:53:13 Berlin), Seriennummer 0x0A2E5A9F.
+1. RFC 3161 (freetsa.org): PREDICTION_KNOTEN.txt.freetsa.tsr
+   Pruefen: openssl ts -verify -data PREDICTION_KNOTEN.txt -in PREDICTION_KNOTEN.txt.freetsa.tsr -CAfile root.pem -untrusted tsa.pem
+   Ergebnis: Verification: OK
+2. OpenTimestamps (Bitcoin): PREDICTION_KNOTEN.txt.alice.ots, .bob.ots, .finney.ots
+   Nach der Bitcoin-Bestaetigung: ots upgrade <Datei>, danach ots verify.
+3. Git: Commit 0dd1f56a2b85f8a4f7d28c7a4a1a2c0f0191fe67, 18.11.2026 23:12:18 Uhr (Berlin).
