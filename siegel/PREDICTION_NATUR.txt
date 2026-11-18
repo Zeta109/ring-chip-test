@@ -1,0 +1,31 @@
+VORHERSAGEN AN DER NATUR, festgelegt am 18.11.2026 vor jeder Messung
+Alle Zahlen folgen aus 2 und 3: cos(theta) = -1/4, w = Knotengewicht, cos(theta) = (w-2)/(w+3), omega = sqrt(10/(w+3)). Stellen abgeschnitten, nie gerundet.
+Ereignisse: Ein unabhaengiges Labor misst; die Zahl steht hier vorher. Aenderung nach dem Start: ausgeschlossen.
+
+V1 Winkel des Wassermolekuels in Abhaengigkeit von der Hoehe (Knotengewicht w = 1/(1+h/R)^2, R = 6371 km als Bezugsgroesse)
+   Bodenwert: theta0 = 104,4775121859299238787710347991271660051315 Grad
+   Hoehe km | Gewicht w         | Winkel (Grad)        | Aenderung (Grad) | relative Aenderung der Frequenz %
+        0   | 1,0000000000 | 104,477512185929 | 0,0000000000 | 0,0000000000
+        1   | 0,9996861514 | 104,483316446785 | 0,0058042608 | 0,0039233379
+        2   | 0,9993724505 | 104,489119037726 | 0,0116068517 | 0,0078452906
+        4   | 0,9987454917 | 104,500719212147 | 0,0232070262 | 0,0156850428
+       10   | 0,9968681509 | 104,535479716856 | 0,0579675309 | 0,0391711161
+      100   | 0,9693316884 | 105,049763829971 | 0,5722516440 | 0,3855724766
+      408   | 0,8832506024 | 106,713194024863 | 2,2356818389 | 1,4921111733
+   Steigung am Boden: d theta / d h = 0,0058050960 Grad je km; bei 4 km (4000 m) +0,0232 Grad, bei 408 km +2,2357 Grad.
+   Aussage: der freie H-O-H-Winkel waechst mit der Hoehe ueber dem Erdboden; die Lehrbuchphysik gibt keine Hoehenabhaengigkeit. Mess-Ort: Ballon, Hochgebirge, Raumstation, Mikrowellen-/Infrarot-Spektroskopie derselben Probe.
+
+V2 Frequenz je Grad: f(theta) = sqrt(2-2 cos theta)/(2 pi) = sin(theta/2)/pi
+   f(theta0) = 0,2516460605224351751811376507137321935081 (Einheit: 1 je Ringeinheit)
+   relative Aenderung der Frequenz je Grad am Boden (Ableitung): 0,675963112662 %; fuer genau +1 Grad: 0,672146 %
+   Aussage: Verhaeltnis zweier Winkel gibt das Frequenzverhaeltnis sin(theta1/2)/sin(theta2/2), ohne Einheit.
+
+V3 Korridor der Rastung des Wassers (Knotengewicht w = 1): 99,881512185929923 bis 109,073512185929923 Grad
+   Aussage: in der Struktur um die DNA liegt der H-O-H-Winkel innerhalb des Korridors; ausserhalb ist die Struktur nicht gehalten.
+
+V4 Ganghoehe der DNA in Loesung: j = 36 * theta / 360 = 10,447751218592992 Basenpaare je Windung
+   Aussage: jede Messung der Ganghoehe in Loesung (Minikreis-Topoisomere, Kryo-EM, Roentgen) ergibt 10,4477 innerhalb ihrer Genauigkeit.
+
+V5 Ausgleich der DNA bei Verlust des Knotenhalts in 408 km Hoehe: noetig +13,218150 % (Halt sinkt um 11,674939 %)
+   Aussage: der Ausgleich der DNA waechst mit der Hoehe wie 1/w(h) - 1; Messung bei 0, 2000 und 4000 m: +0,000000 / +0,062794 / +0,125608 %.
+

@@ -1,0 +1,11 @@
+SIEGEL DER DATEI PREDICTION_NATUR.txt
+SHA-256: 49196f3a650185c8332aef5006b250aa8773f7ad77aacc261fc2ecdb1014f4e3
+Gestempelt am 18.11.2026 um 21:03:59 Uhr GMT (22:03:59 Berlin).
+
+1. RFC 3161 (freetsa.org): PREDICTION_NATUR.txt.freetsa.tsr
+   Pruefen: openssl ts -verify -data PREDICTION_NATUR.txt -in PREDICTION_NATUR.txt.freetsa.tsr -CAfile root.pem -untrusted tsa.pem
+   Ergebnis: Verification: OK
+2. OpenTimestamps (Bitcoin): PREDICTION_NATUR.txt.alice.ots, .bob.ots, .finney.ots
+   Pruefen: ots verify PREDICTION_NATUR.txt.alice.ots   (pip install opentimestamps-client)
+   Nach der Bitcoin-Bestaetigung (Stunden): ots upgrade PREDICTION_NATUR.txt.alice.ots, danach ots verify.
+3. Git: Commit 842dc02368e2e113393c3c3115e2b61118098c7a, 18.11.2026 21:11:23 Uhr (Berlin).
